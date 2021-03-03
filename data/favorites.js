@@ -1,14 +1,82 @@
 module.exports = [
   {
-    name: 'bessie',
-    cool_factor: 3,
+    name: 'Roboto',
+    link: 'https://fonts.google.com/specimen/Roboto?preview.text_type=custom',
+    category: 'sans-serif',
+    variants: [
+      '300',
+      '300italic',
+      'regular',
+      'italic',
+      '600',
+      '600italic',
+      '700',
+      '700italic',
+      '800',
+      '800italic'
+    ],
+    subsets: [
+      'cyrillic',
+      'cyrillic-ext',
+      'greek',
+      'greek-ext',
+      'latin',
+      'latin-ext',
+      'vietnamese'
+    ],
   },
   {
-    name: 'jumpy',
-    cool_factor: 4,
+    name: 'Noto Sans JP',
+    link: 'https://fonts.google.com/specimen/Noto+Sans+JP?preview.text_type=custom',
+    category: 'sans-serif',
+    variants: [
+      '100',
+      '300',
+      'regular',
+      '500',
+      '700',
+      '900'
+    ],
+    subsets: [
+      'japanese',
+      'latin'
+    ],
   },
   {
-    name: 'spot',
-    cool_factor: 10,
+    name: 'Lato',
+    link: 'https://fonts.google.com/specimen/Lato?preview.text_type=custom',
+    category: 'sans-serif',
+    variants: [
+      '100',
+      '100italic',
+      '300',
+      '300italic',
+      'regular',
+      'italic',
+      '700',
+      '700italic',
+      '900',
+      '900italic'
+    ],
+    subsets: [
+      'latin',
+      'latin-ext'
+    ],
+  },
+  {
+    name: 'Space Mono',
+    link: 'https://fonts.google.com/specimen/Space+Mono?preview.text_type=custom',
+    category: 'monospace',
+    variants: [
+      'regular',
+      'italic',
+      '700',
+      '700italic'
+    ],
+    subsets: [
+      'latin',
+      'latin-ext',
+      'vietnamese'
+    ],
   }
 ];
