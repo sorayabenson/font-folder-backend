@@ -24,7 +24,7 @@ async function run() {
                     category VARCHAR(512) NOT NULL,
                     variants VARCHAR(512) NOT NULL,
                     subsets VARCHAR(512) NOT NULL,
-                    owner_id INTEGER NOT NULL REFERENCES users(id)
+                    user_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);
 

@@ -33,7 +33,7 @@ async function run() {
                       category, 
                       variants, 
                       subsets, 
-                      owner_id
+                      user_id
                     )
                     VALUES ($1, $2, $3, $4, $5, $6);
                 `,
