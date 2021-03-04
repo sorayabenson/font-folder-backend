@@ -25,7 +25,12 @@ async function run() {
                     variants VARCHAR(512) NOT NULL,
                     subsets VARCHAR(512) NOT NULL,
                     user_id INTEGER NOT NULL REFERENCES users(id)
-            );
+                );
+                CREATE TABLE categories (
+                  id SERIAL PRIMARY KEY,
+                  name VARCHAR(256) NOT NULL,
+                  value VARCHAR(512) NOT NULL
+              );   
         `);
 
     console.log('create tables complete', getEmoji(), getEmoji(), getEmoji());

@@ -1,6 +1,7 @@
 const client = require('../lib/client');
 // import our seed data:
 const favorites = require('./favorites.js');
+const categories = require('./categories.js');
 const usersData = require('./users.js');
 const { getEmoji } = require('../lib/emoji.js');
 
@@ -47,7 +48,22 @@ async function run() {
         ]);
       })
     );
-    
+
+    await Promise.all(
+      categories.map(category => {
+        return client.query(`
+                    INSERT INTO categories (
+                      name, 
+                      value
+                    )
+                    VALUES ($1, $2);
+                `,
+        [
+          category.name, 
+          category.value
+        ]);
+      })
+    );    
 
     console.log('seed data load complete', getEmoji(), getEmoji(), getEmoji());
   }

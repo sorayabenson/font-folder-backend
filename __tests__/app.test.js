@@ -31,19 +31,6 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    const favorite = {
-      name: 'Test Font',
-      link: 'https://testfont.com',
-      category: 'test-serif',
-      variants: ['300', '2000'],
-      subsets: ['latin', 'persian']
-    };
-
-    const databaseFavorites = {
-      ...favorite,
-      id: 5,
-      user_id: 2
-    };
 
     test('.post(/api/favorites) endpoint creates a favorite item and adds it to the favorites array', async() => {
 
@@ -51,8 +38,14 @@ describe('app routes', () => {
         name: 'Test Font',
         link: 'https://testfont.com',
         category: 'test-serif',
-        variants: ['300', '2000'],
-        subsets: ['latin', 'persian']
+        variants: '{"300","2000"}',
+        subsets: '{"latin","persian"}'
+      };
+
+      const databaseFavorites = {
+        ...favorite,
+        id: 5,
+        user_id: 2
       };
 
       const data = await fakeRequest(app)
@@ -73,9 +66,9 @@ describe('app routes', () => {
           id: 5,
           link: 'https://testfont.com',
           name: 'Test Font',
-          subsets: ['latin', 'persian'],
+          subsets: '{"latin","persian"}',
           user_id: 2,
-          variants: ['300', '2000'],
+          variants: '{"300","2000"}',
         },
       ];
 
@@ -100,7 +93,7 @@ describe('app routes', () => {
 
     });
 
-    test('.get(/fonts) endpoint fetches fonts from the googlefont api', async () => {
+    test('.get(/fontstest) endpoint fetches fonts from the googlefont api', async () => {
       const expectation = [
         {
           category: 'sans-serif',
@@ -227,7 +220,7 @@ describe('app routes', () => {
       ];
 
       const data = await fakeRequest(app)
-        .get('/fonts')
+        .get('/fontstest')
         .expect('Content-Type', /json/)
         .expect(200);
 
@@ -235,6 +228,44 @@ describe('app routes', () => {
       const slicedData = data.body.slice(0, 4);
 
       expect(slicedData).toEqual(expectation);
+    });
+
+    test('.get(/categories) endpoint returns categories array', async() => {
+
+      const expectation = [
+        {
+          id: 1,
+          name: 'alphabetically',
+          value: 'alpha'
+        },
+        {
+          id: 2,
+          name: 'recent',
+          value: 'date'
+        },
+        {
+          id: 3,
+          name: 'popularity',
+          value: 'popularity'
+        },
+        {
+          id: 4,
+          name: 'style',
+          value: 'style'
+        },
+        {
+          id: 5,
+          name: 'trending',
+          value: 'trending'
+        }
+      ];
+
+      const data = await fakeRequest(app)
+        .get('/categories')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
     });
 
   });
