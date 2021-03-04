@@ -23,8 +23,7 @@ module.exports = [
       'latin',
       'latin-ext',
       'vietnamese'
-    ],
-    user_id: 1,
+    ]
   },
   {
     name: 'Noto Sans JP',
@@ -41,8 +40,7 @@ module.exports = [
     subsets: [
       'japanese',
       'latin'
-    ],
-    user_id: 1,
+    ]
   },
   {
     name: 'Lato',
@@ -63,8 +61,7 @@ module.exports = [
     subsets: [
       'latin',
       'latin-ext'
-    ],
-    user_id: 1,
+    ]
   },
   {
     name: 'Space Mono',
@@ -80,7 +77,6 @@ module.exports = [
       'latin',
       'latin-ext',
       'vietnamese'
-    ],
-    user_id: 1,
+    ]
   }
 ];
