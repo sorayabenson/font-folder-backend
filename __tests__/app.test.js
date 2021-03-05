@@ -81,6 +81,28 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
+    test('.get(api/detail/:name) endpoint returns favorites one font', async() => {
+
+      const expectation = [
+        {
+          name: 'Test Font',
+          category: 'test-serif',
+          link: 'https://testfont.com',
+          subsets: '{"latin","persian"}',
+          variants: '{"300","2000"}',
+          id: 5,
+          user_id: 2
+        }
+      ];
+
+      const data = await fakeRequest(app)
+        .get('/detail/Test Font')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+    });
+
     test('.delete(/api/favorites/:name) endpoint deletes a favorite item and removes it from the favorites array', async() => {
 
       const data = await fakeRequest(app)
