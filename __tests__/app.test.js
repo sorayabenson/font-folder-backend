@@ -81,10 +81,10 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
-    test('.delete(/api/favorites/:id) endpoint deletes a favorite item and removes it from the favorites array', async() => {
+    test('.delete(/api/favorites/:name) endpoint deletes a favorite item and removes it from the favorites array', async() => {
 
       const data = await fakeRequest(app)
-        .delete('/api/favorites/5')
+        .delete('/api/favorites/Test Font')
         .set('Authorization', token)
         .expect('Content-Type', /json/)
         .expect(200);
